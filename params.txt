@@ -1,4 +1,5 @@
 PARAMETERS
+
 CAR RELATED
 average acceleration
 average max speed
@@ -11,11 +12,11 @@ SIM RELATED
 number of lanes
 incoming traffic flow
 simulation speed (tick rate)
-
+percent number of trucks
 
 
 STATS
-
+total traffic flow
 
 
 
