@@ -1,0 +1,27 @@
+PARAMETERS
+
+CAR RELATED
+average acceleration
+average max speed
+average stopping distance
+average frequency of lane changes
+average reaction speed
+
+
+SIM RELATED
+number of lanes
+incoming traffic flow
+simulation speed (tick rate)
+percent number of trucks
+
+
+STATS
+total traffic flow
+
+
+
+
+
+EXTRA
+(DRIVER SCORE AS ALTERNATIVE TO USER CONTROL)
+
