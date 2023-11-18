@@ -11,3 +11,7 @@ class Simulation{
 
 
 }
+
+function restartSim(){
+    //ah
+}
