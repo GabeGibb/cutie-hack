@@ -1,9 +1,16 @@
+
+
 function setup() {
     var myCanvas = createCanvas(400, 400);
     myCanvas.parent("canvasParent");
 }
   
-  function draw() {
+var sim = new Simulation();
+
+
+function draw() {
+    frameRate(60);
     background(220);
-    ellipse(50,50,80,80);
-  }
+    sim.tick();
+
+}
