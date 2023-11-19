@@ -3,10 +3,10 @@ body{
 }
 #white{
     background-color: white;
-    margin-top:0px;
-    position:absolute;
+    /* margin-top:0px; */
+    margin: auto;
     top:0px;
-    width:100%;
+    /* width:fit-content%; */
 }
 #title{
     text-align:center;
@@ -28,7 +28,6 @@ body{
 }
 #board{
     position:relative;
-    top: 350px;
 }
 
 #canvasParent{
