@@ -22,13 +22,25 @@ class Vehicle{
         this.curY = 0;
     }
 
-    changeToRed(){
-        this.color = color(255, 0, 0);
-    }
+    setColor(){
+        if (this.accel <= 0){
+            let r = (255 - Math.abs(this.speed) * 200  / this.maxSpeed) + 50;
+            this.color = color(r, 0, 0)
+        }else{
+            let g = (this.speed * 200 / this.maxSpeed) + 50;
+            this.color = color(0, g, 0);
 
-    changeToWhite(){
-        this.color = color(255, 255, 255);
+        }
+        // this.color = color()
     }
+    // changeToRed(){
+    //     // this.color = color(255, 0, 0);
+    // }
+
+    // changeToWhite(){
+    //     this.color = color(255, 255, 255);
+    //     // this.color = color(0, 255, this.speed * 200)
+    // }
 
     tick(nextCar, numLanes){
         if (this.lastLane != this.lane) {
@@ -53,12 +65,13 @@ class Vehicle{
             nextCarX = nextCar.x;
         }
 
-        if((nextCarX - this.x) < this.stoppingDistance) {
-            this.changeToRed();
-        }
-        else { 
-            this.changeToWhite();
-        }
+        // if((nextCarX - this.x) < this.stoppingDistance) {
+        //     this.changeToRed();
+        // }
+        // else { 
+        //     this.changeToWhite();
+        // }
+        this.setColor();
         
         if((nextCarX - this.x) > this.stoppingDistance) {
             this.accelerate();
