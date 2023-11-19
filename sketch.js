@@ -1,5 +1,3 @@
-
-
 function setup() {
     var myCanvas = createCanvas(1000, 400);
     myCanvas.parent("canvasParent");
