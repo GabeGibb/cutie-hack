@@ -1,20 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Traffic Simulation</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js" integrity="sha512-pgK6Wo8doipc/IPQ0ilH3b47ww01345nR9ud1/6Qp0n+lQlEW9zuw6JhysRcUpBY4yKuVZjn1MAkDxbnncuGsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="input.js" defer></script>
     <script src="cars.js"></script>
     <script src="simulation.js" defer></script>
     <script src="sketch.js" defer></script>
 </head>
 <body>
-    <div id="canvasParent"></div>
-    <button onclick="restartSim()">Restart Simulation</button>
-    <div class = "slidecontainer">
-        <p>Speed:</p>
-        <input type="range" min="1" max="100" value="50" class="slider" id="speedSlider">
+
+    <div id="settings">
+        <div id="carSettings" class="settingsDiv">
+            <h3>Car Settings</h3>
+            <div class = "slideContainer">
+                <p>Average Acceleration</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="accelerationSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="accelerationField">
+            </div>
+            <div class = "slideContainer">
+                <p>Max Speed</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="maxSpeedSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="maxSpeedField">
+            </div>
+            <div class = "slideContainer">
+                <p>Stopping Distance</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="stoppingDistanceSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="stoppingDistanceField">
+            </div>
+            <div class = "slideContainer">
+                <p>Lange Change Frequency</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="laneChangeFreqSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="laneChangeFreqField">
+            </div>
+            <div class = "slideContainer">
+                <p>Reaction Speed</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="reactSpeedSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="reactSpeedField">
+            </div>
+        </div>
+
+        <div id="simSettings" class="settingsDiv">
+            <h3>Simulation Settings</h3>
+            <div class = "slideContainer">
+                <p># of Lanes</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="numLanesSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="numLanesField">
+            </div>
+            <div class = "slideContainer">
+                <p>Incoming Traffic Flow</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="trafficFlowSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="trafficFlowField">
+            </div>
+            <div class = "slideContainer">
+                <p>Tick Rate</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="tickRateSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="tickRateField">
+            </div>
+            <div class = "slideContainer">
+                <p>% Number of Trucks</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="perNumTrucksSlider">
+                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="perNumTrucksField">
+            </div>
+        </div>
     </div>
+
+    <button id="restartButton" onclick="restartSim()"><img src="images/icons8-restart-50.png" alt="Restart Button"></button>
+    <div id="canvasParent"></div>
+
 </body>
 </html>

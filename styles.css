@@ -1,0 +1,42 @@
+#canvasParent{
+    margin:auto;
+    justify-content: center;
+    display:flex;
+    /* padding:100px; */
+}
+#settings{
+    margin:30px;
+}
+#carSettings{
+    display:flex;
+}
+#restartButton{
+    margin:auto;
+    justify-content: center;
+    display:flex;
+    background-color: transparent;
+    border:0px;
+    padding:10px;
+    cursor: pointer;
+}
+.settingsDiv{
+    padding:20px;
+}
+
+#carSettings .slideContainer{
+    justify-content:center;
+    margin:auto;
+}
+
+#simSettings{
+    display:flex;
+}
+
+#simSettings .slideContainer{
+    justify-content:center;
+    margin:auto;
+}
+
+.slideNum{
+    width:20px;
+}
