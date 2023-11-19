@@ -35,7 +35,7 @@ class Simulation{
         }
         
         if (Math.floor(Math.random() * 100) < this.laneChangeFreq){
-            let ticketPenalty = 50;
+            let ticketPenalty = 55;
             let totalTickets = this.numLanes * 100 - (2 * ticketPenalty);
             let ticketArr = [];
             for(let i = 0; i < this.numLanes; i++) {
