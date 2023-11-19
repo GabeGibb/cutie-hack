@@ -17,6 +17,9 @@ class Vehicle{
         this.width = 20;
         this.stoppingDistance = this.width * STOPPING_DISTANCE;
         this.color = color(255, 255, 255);
+
+        this.yChange = 0;
+        this.curY = 0;
     }
 
     changeToRed(){
@@ -24,7 +27,7 @@ class Vehicle{
     }
 
     changeToWhite(){
-        this.color = color(0, 255, 255);
+        this.color = color(255, 255, 255);
     }
 
     tick(nextCar, numLanes){
@@ -79,6 +82,7 @@ class Vehicle{
 
         this.move();
         this.lastLane = this.lane;
+        this.laneChange();
     }
 
     accelerate() {
@@ -101,6 +105,14 @@ class Vehicle{
             this.speed = nextSpeed;
         }
         this.x = nextX;
+    }
+
+    laneChange(){
+        this.curY += this.yChange * 2;
+        if (Math.abs(this.curY) > 54){
+            this.curY = 0;
+            this.yChange = 0;
+        }
     }
 }
 

@@ -8,6 +8,18 @@ body{
     top:0px;
     /* width:fit-content%; */
 }
+#summary h2{
+    margin:auto;
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    font-family: 'Roboto Mono', monospace;
+    font-size:20px;
+
+}
+#summary{
+    padding: 15px;
+}
 #title{
     text-align:center;
     font-family: 'Zen Dots', sans-serif;
@@ -122,4 +134,9 @@ body{
     border: 0;
     background: url('images/icons8-car-20.png');
     cursor: pointer;
+  }
+
+  .summary{
+    padding: 20px;
+    margin: auto;
   }
