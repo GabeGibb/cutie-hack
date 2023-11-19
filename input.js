@@ -32,7 +32,7 @@ var TRAFFIC_FLOW = Number($("#trafficFlowField").val());
 var TICK_RATE = Number($("#tickRateField").val());
 
 function updateConstants(){
-     AVERAGE_ACCELERATION = Number($("#accelerationField").val()) / 10;
+     AVERAGE_ACCELERATION = Number($("#accelerationField").val()) / 100;
      MAX_SPEED = Number($("#maxSpeedField").val());
      STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
      LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());

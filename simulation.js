@@ -3,6 +3,7 @@ class Simulation{
         this.numLanes = numLanes;
         this.trafficFlow = trafficFlow;
         this.laneChangeFreq = laneChangeFreq;
+        console.log(this.laneChangeFreq)
 
         this.vehicles = [];
         for(let i = 0; i < this.numLanes; i++){
@@ -28,7 +29,6 @@ class Simulation{
             }
             
             for(let i = 0; i < randLanes.length; i++){
-                console.log(MAX_SPEED)
                 this.vehicles[randLanes[i]].unshift(new Vehicle(AVERAGE_ACCELERATION, MAX_SPEED, randLanes[i]));
             
             }
@@ -40,7 +40,7 @@ class Simulation{
                 let indexToChange = Math.floor(Math.random() * this.vehicles[laneToChange].length);
                 let cur = this.vehicles[laneToChange][indexToChange];
                 if (cur.x < 400 && laneToChange == this.numLanes - 1){
-                    console.log('hi')
+
                 }else{
                     let dir = 0;
                     if (laneToChange == 0){

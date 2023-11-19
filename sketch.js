@@ -47,6 +47,15 @@ function restartSim(){
 
     updateConstants();
     resizeCanvas(windowWidth * 7/8, (laneHeight * NUM_LANES * laneSpacing) + laneStartSpace);
-    sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, TICK_RATE, LANE_CHANGE_FREQ);
+    sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, LANE_CHANGE_FREQ);
+    console.log(LANE_CHANGE_FREQ)
 }
 
+
+var sliders = document.querySelectorAll("input").length;
+
+for (var i = 0; i < sliders ; i++) {
+    document.querySelectorAll("input")[i].addEventListener("change", function() {
+        restartSim();
+    });
+}

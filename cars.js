@@ -9,8 +9,7 @@ class Vehicle{
         this.lastLane = this.lane;
         
         this.trueAccel = accel;
-
-        this.accel = accel;
+        this.accel = this.trueAccel;
         this.maxSpeed = maxSpeed;
         this.speed = this.maxSpeed / 10;
         this.x = 0;
