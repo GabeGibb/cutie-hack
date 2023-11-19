@@ -17,7 +17,8 @@ percent number of trucks
 
 STATS
 total traffic flow
-
+time elapsed
+traffic flow / sec
 
 
 

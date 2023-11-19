@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Traffic Simulation</title>
+    <title>Traffic Simulation Playground</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js" integrity="sha512-pgK6Wo8doipc/IPQ0ilH3b47ww01345nR9ud1/6Qp0n+lQlEW9zuw6JhysRcUpBY4yKuVZjn1MAkDxbnncuGsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -12,8 +11,18 @@
     <script src="cars.js"></script>
     <script src="simulation.js" defer></script>
     <script src="sketch.js" defer></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro:wght@400;600&family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="white">
+    <div id="headerDiv">
+        <h1 id="title">Traffic Simulation Playground</h1>
+        <img src="images\icons8-about-50.png" alt="About" id="about">
+    </div>
 
     <div id="settings">
         <div id="carSettings" class="settingsDiv">
@@ -69,9 +78,10 @@
             </div>
         </div>
     </div>
-
-    <button id="restartButton" onclick="restartSim()"><img src="images/icons8-restart-50.png" alt="Restart Button"></button>
-    <div id="canvasParent"></div>
-
+</div>
+    <div id="board">
+        <button id="restartButton" onclick="restartSim()"><img src="images/icons8-restart-50.png" alt="Restart Button"></button>
+        <div id="canvasParent"></div>
+    </div>
 </body>
 </html>
