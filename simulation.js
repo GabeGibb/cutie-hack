@@ -56,41 +56,44 @@ class Simulation{
                 laneToChange = i;
                 i++;
             }
-            console.log(laneToChange)
+            // console.log(laneToChange)
 
             if (this.vehicles[laneToChange].length != 0){
                 let indexToChange = Math.floor(Math.random() * this.vehicles[laneToChange].length);
                 let cur = this.vehicles[laneToChange][indexToChange];
-                let dir = 0;
-                if (laneToChange == 0){
-                    dir = 1;
-                }
-                else if (laneToChange >= this.numLanes - 1){
-                    dir = -1;
-                }
-                else{
-                    if (Math.random() > 0.5){
+                if (cur.curY == 0){
+                    let dir = 0;
+                    if (laneToChange == 0){
                         dir = 1;
-                    }else{
+                    }
+                    else if (laneToChange >= this.numLanes - 1){
                         dir = -1;
                     }
-                }
-                
-                let newLane = laneToChange + dir;
-                cur.lane = newLane;
-                let carInFront = false;
-                for(let i = 0; i < this.vehicles[newLane].length; i++){
-                    if (this.vehicles[newLane][i].x > cur.x){ //once you find car in front of current car in another lane swap current car to behind other car in other lane
-                        this.vehicles[newLane].splice(i, 0, cur); //lane change
-                        carInFront = true;
-                        break;
+                    else{
+                        if (Math.random() > 0.5){
+                            dir = 1;
+                        }else{
+                            dir = -1;
+                        }
                     }
+                    
+                    let newLane = laneToChange + dir;
+                    cur.lane = newLane;
+                    let carInFront = false;
+                    for(let i = 0; i < this.vehicles[newLane].length; i++){
+                        if (this.vehicles[newLane][i].x > cur.x){ //once you find car in front of current car in another lane swap current car to behind other car in other lane
+                            this.vehicles[newLane].splice(i, 0, cur); //lane change
+                            carInFront = true;
+                            break;
+                        }
+                    }
+                    if (carInFront == false){ 
+                        this.vehicles[newLane].push(cur); //car is already in front of other cars in lane
+                    }
+                    this.vehicles[laneToChange].splice(indexToChange, 1); //remove from previous lane
+                    cur.yChange = dir;
+
                 }
-                if (carInFront == false){ 
-                    this.vehicles[newLane].push(cur); //car is already in front of other cars in lane
-                }
-                this.vehicles[laneToChange].splice(indexToChange, 1); //remove from previous lane
-                cur.yChange = dir;
             }
         }
         
