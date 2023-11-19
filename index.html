@@ -29,28 +29,23 @@
             <h3>Car Settings</h3>
             <div class = "slideContainer">
                 <p>Average Acceleration</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="accelerationSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="accelerationField">
+                <input type="range" min="0.01" max="1" value="0.1" class="slider" id="accelerationSlider">
+                <input type="text" inputmode="numeric" min="0.01" max="1" value="0.1" class="slideNum" id="accelerationField">
             </div>
             <div class = "slideContainer">
                 <p>Max Speed</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="maxSpeedSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="maxSpeedField">
+                <input type="range" min="0.1" max="10" value="1" class="slider" id="maxSpeedSlider">
+                <input type="text" inputmode="numeric" min="0.1" max="10" value="1" class="slideNum" id="maxSpeedField">
             </div>
             <div class = "slideContainer">
-                <p>Stopping Distance</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="stoppingDistanceSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="stoppingDistanceField">
+                <p>Stopping Distance Multiplier</p>
+                <input type="range" min="1" max="10" value="2" class="slider" id="stoppingDistanceSlider">
+                <input type="text" inputmode="numeric" min="1" max="10" value="2" class="slideNum" id="stoppingDistanceField">
             </div>
             <div class = "slideContainer">
-                <p>Lane Change Frequency</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="laneChangeFreqSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="laneChangeFreqField">
-            </div>
-            <div class = "slideContainer">
-                <p>Reaction Speed</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="reactSpeedSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="reactSpeedField">
+                <p>Lange Change Frequency</p>
+                <input type="range" min="1" max="20" value="5" class="slider" id="laneChangeFreqSlider">
+                <input type="text" inputmode="numeric" min="1" max="20" value="5" class="slideNum" id="laneChangeFreqField">
             </div>
         </div>
 
@@ -58,20 +53,19 @@
             <h3>Simulation Settings</h3>
             <div class = "slideContainer">
                 <p># of Lanes</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="numLanesSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="numLanesField">
+                <input type="range" min="1" max="10" value="3" class="slider" id="numLanesSlider">
+                <input type="text" inputmode="numeric" min="1" max="10" value="3" class="slideNum" id="numLanesField">
             </div>
             <div class = "slideContainer">
-                <p>Traffic Flow</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="trafficFlowSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="trafficFlowField">
+                <p>Incoming Traffic Flow</p>
+                <input type="range" min="1" max="20" value="5" class="slider" id="trafficFlowSlider">
+                <input type="text" inputmode="numeric" min="1" max="20" value="5" class="slideNum" id="trafficFlowField">
             </div>
             <div class = "slideContainer">
                 <p>Tick Rate</p>
-                <input type="range" min="1" max="100" value="50" class="slider" id="tickRateSlider">
-                <input type="text" inputmode="numeric" min="1" max="100" value="50" class="slideNum" id="tickRateField">
+                <input type="range" min="1" max="10" value="1" class="slider" id="tickRateSlider">
+                <input type="text" inputmode="numeric" min="1" max="10" value="1" class="slideNum" id="tickRateField">
             </div>
-
         </div>
     </div>
 </div>

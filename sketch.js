@@ -1,10 +1,10 @@
 
-let numLanes = 3;
-let trafficFlow = 5;
-let tickRate = 1;
-let percentTrucks = 0;
-let laneChangeFreq = 2;
-var sim = new Simulation(numLanes, trafficFlow, tickRate, percentTrucks, laneChangeFreq);
+// let numLanes = 4;
+// let trafficFlow = 5;
+// let tickRate = 1;
+// let percentTrucks = 0;
+// let laneChangeFreq = 2;
+var sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, TICK_RATE, LANE_CHANGE_FREQ);
 
 
 
@@ -26,7 +26,7 @@ function setup() {
     laneWidth = lane.width;
     laneStartSpace = (laneSpacing-1) * laneHeight;
 
-    myCanvas = createCanvas(windowWidth * 7 / 8, (laneHeight * numLanes * laneSpacing) + laneStartSpace);
+    myCanvas = createCanvas(windowWidth * 7/8, (laneHeight * NUM_LANES * laneSpacing) + laneStartSpace);
     myCanvas.parent("canvasParent");
 }
   
@@ -34,7 +34,7 @@ function setup() {
 function draw() {
     frameRate(60);
     background(140, 145, 144);
-    for(let j = 0; j < numLanes; j++){
+    for(let j = 0; j < NUM_LANES; j++){
         for(let i = 0; i < Math.ceil(width / laneWidth); i++){
             image(lane,i * laneWidth,j * laneHeight * laneSpacing + laneStartSpace);
         }
@@ -43,7 +43,9 @@ function draw() {
     sim.draw(laneHeight, laneSpacing, laneStartSpace, width);
 }
 
-function restart(){
-
+function restartSim(){
+    updateConstants();
+    resizeCanvas(windowWidth * 7/8, (laneHeight * NUM_LANES * laneSpacing) + laneStartSpace);
+    sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, TICK_RATE, LANE_CHANGE_FREQ);
 }
 

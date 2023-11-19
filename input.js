@@ -10,9 +10,6 @@ document.getElementById("stoppingDistanceSlider").addEventListener("input", func
 document.getElementById("laneChangeFreqField").addEventListener('keypress', function(e){if (e.key = "Enter"){document.getElementById("laneChangeFreqSlider").value = e.target.value}})
 document.getElementById("laneChangeFreqSlider").addEventListener("input", function(e){document.getElementById("laneChangeFreqField").value = e.target.value})
 
-document.getElementById("reactSpeedField").addEventListener('keypress', function(e){if (e.key = "Enter"){document.getElementById("reactSpeedSlider").value = e.target.value}})
-document.getElementById("reactSpeedSlider").addEventListener("input", function(e){document.getElementById("reactSpeedField").value = e.target.value})
-
 
 
 
@@ -25,13 +22,23 @@ document.getElementById("trafficFlowSlider").addEventListener("input", function(
 document.getElementById("tickRateField").addEventListener('keypress', function(e){if (e.key = "Enter"){document.getElementById("tickRateSlider").value = e.target.value}})
 document.getElementById("tickRateSlider").addEventListener("input", function(e){document.getElementById("tickRateField").value = e.target.value})
 
-const AVERAGE_ACCELERATION = $("#accelerationField").val();
-const MAX_SPEED = $("#accelerationField").val();
-const STOPPING_DISTANCE = $("#stoppingDistanceField").val();
-const LANE_CHANGE_FREQ = $("#laneChangeFreqField").val();
-const REACT_SPEED = $("#reactSpeedField").val();
-const NUM_LANES = $("#numLanesField").val();
-const TRAFFIC_FLOW = $("#trafficFlowField").val();
-const TICK_RATE = $("#tickRateField").val();
 
+const AVERAGE_ACCELERATION = Number($("#accelerationField").val());
+const MAX_SPEED = Number($("#maxSpeedField").val());
+const STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
+const LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
+const REACT_SPEED = Number($("#reactSpeedField").val());
+const NUM_LANES = Number($("#numLanesField").val());
+const TRAFFIC_FLOW = Number($("#trafficFlowField").val());
+const TICK_RATE = Number($("#tickRateField").val());
 
+function updateConstants(){
+    AVERAGE_ACCELERATION = Number($("#accelerationField").val());
+    MAX_SPEED = Number($("#maxSpeedField").val());
+    STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
+    LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
+    REACT_SPEED = Number($("#reactSpeedField").val());
+    NUM_LANES = Number($("#numLanesField").val());
+    TRAFFIC_FLOW = Number($("#trafficFlowField").val());
+    TICK_RATE = Number($("#tickRateField").val());
+}
