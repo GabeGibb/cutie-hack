@@ -25,9 +25,6 @@ document.getElementById("trafficFlowSlider").addEventListener("input", function(
 document.getElementById("tickRateField").addEventListener('keypress', function(e){if (e.key = "Enter"){document.getElementById("tickRateSlider").value = e.target.value}})
 document.getElementById("tickRateSlider").addEventListener("input", function(e){document.getElementById("tickRateField").value = e.target.value})
 
-document.getElementById("perNumTrucksField").addEventListener('keypress', function(e){if (e.key = "Enter"){document.getElementById("perNumTrucksSlider").value = e.target.value}})
-document.getElementById("perNumTrucksSlider").addEventListener("input", function(e){document.getElementById("perNumTrucksField").value = e.target.value})
-
 const AVERAGE_ACCELERATION = $("#accelerationField").val();
 const MAX_SPEED = $("#accelerationField").val();
 const STOPPING_DISTANCE = $("#stoppingDistanceField").val();
@@ -36,6 +33,5 @@ const REACT_SPEED = $("#reactSpeedField").val();
 const NUM_LANES = $("#numLanesField").val();
 const TRAFFIC_FLOW = $("#trafficFlowField").val();
 const TICK_RATE = $("#tickRateField").val();
-const PERCENT_NUM_TRUCKS = $("#perNumTrucksField").val();
 
-console.log(PERCENT_NUM_TRUCKS)
+
