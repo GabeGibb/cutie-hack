@@ -1,9 +1,7 @@
 class Simulation{
-    constructor(numLanes, trafficFlow, tickRate, percentTrucks, laneChangeFreq){
+    constructor(numLanes, trafficFlow, laneChangeFreq){
         this.numLanes = numLanes;
         this.trafficFlow = trafficFlow;
-        this.tickRate = tickRate;
-        this.percentTrucks = percentTrucks;
         this.laneChangeFreq = laneChangeFreq;
 
         this.vehicles = [];
@@ -15,7 +13,7 @@ class Simulation{
     }
 
     tick(){
-        for (let j = 0; j < this.tickRate; j++){
+        for (let j = 0; j < TICK_RATE; j++){
             this.tickLogic();
         }
     }

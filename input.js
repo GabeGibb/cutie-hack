@@ -23,22 +23,21 @@ document.getElementById("tickRateField").addEventListener('keypress', function(e
 document.getElementById("tickRateSlider").addEventListener("input", function(e){document.getElementById("tickRateField").value = e.target.value})
 
 
-const AVERAGE_ACCELERATION = Number($("#accelerationField").val());
-const MAX_SPEED = Number($("#maxSpeedField").val());
-const STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
-const LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
-const REACT_SPEED = Number($("#reactSpeedField").val());
-const NUM_LANES = Number($("#numLanesField").val());
-const TRAFFIC_FLOW = Number($("#trafficFlowField").val());
-const TICK_RATE = Number($("#tickRateField").val());
+var AVERAGE_ACCELERATION = Number($("#accelerationField").val());
+var MAX_SPEED = Number($("#maxSpeedField").val());
+var STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
+var LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
+var NUM_LANES = Number($("#numLanesField").val());
+var TRAFFIC_FLOW = Number($("#trafficFlowField").val());
+var TICK_RATE = Number($("#tickRateField").val());
 
 function updateConstants(){
-    AVERAGE_ACCELERATION = Number($("#accelerationField").val());
-    MAX_SPEED = Number($("#maxSpeedField").val());
-    STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
-    LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
-    REACT_SPEED = Number($("#reactSpeedField").val());
-    NUM_LANES = Number($("#numLanesField").val());
-    TRAFFIC_FLOW = Number($("#trafficFlowField").val());
-    TICK_RATE = Number($("#tickRateField").val());
-}
+     AVERAGE_ACCELERATION = Number($("#accelerationField").val()) / 10;
+     MAX_SPEED = Number($("#maxSpeedField").val());
+     STOPPING_DISTANCE = Number($("#stoppingDistanceField").val());
+     LANE_CHANGE_FREQ = Number($("#laneChangeFreqField").val());
+     NUM_LANES = Number($("#numLanesField").val());
+     TRAFFIC_FLOW = Number($("#trafficFlowField").val());
+     TICK_RATE = Number($("#tickRateField").val());
+    }
+updateConstants();

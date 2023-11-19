@@ -4,7 +4,7 @@
 // let tickRate = 1;
 // let percentTrucks = 0;
 // let laneChangeFreq = 2;
-var sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, TICK_RATE, LANE_CHANGE_FREQ);
+var sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, LANE_CHANGE_FREQ);
 
 
 
@@ -44,6 +44,7 @@ function draw() {
 }
 
 function restartSim(){
+
     updateConstants();
     resizeCanvas(windowWidth * 7/8, (laneHeight * NUM_LANES * laneSpacing) + laneStartSpace);
     sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, TICK_RATE, LANE_CHANGE_FREQ);
