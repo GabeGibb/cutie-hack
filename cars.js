@@ -5,12 +5,16 @@ function toMpt(mph){
 
 class Vehicle{
     constructor(accel, maxSpeed, stoppingDistance, laneChangeFrequency, reactionSpeed){
+       
+        // this.accel =  (Math.random() / 100) + 0.05;
+        // this.maxSpeed = (Math.random()) + 0.5;
+        // this.speed = (Math.random() / 10) + 0.05;
         this.accel = .01;
         this.maxSpeed = 1;
-        this.speed = 0.5;
+        this.speed = 0.1;
         this.x = 0;
 
-        this.width = 15;
+        this.width = 20;
         this.stoppingDistance = this.width * 2;
         this.color = color(255, 255, 255);
     }
@@ -20,7 +24,7 @@ class Vehicle{
     }
 
     changeToWhite(){
-        this.color = color(255, 255, 255);
+        this.color = color(0, 255, 255);
     }
 
     tick(nextCar){
@@ -29,25 +33,23 @@ class Vehicle{
             nextCarX = nextCar.x;
         }
 
-        if((nextCarX - this.x) < 10) {
+        if((nextCarX - this.x) < this.stoppingDistance) {
             this.changeToRed();
-            // this.brake();
         }
         else { 
             this.changeToWhite();
-            // this.accelerate();
         }
         
-
         if((nextCarX - this.x) > this.stoppingDistance) {
             this.accelerate();
         }
-        else if((nextCarX - this.x) < this.stoppingDistance) {
+        else if(((nextCarX - this.x) < this.stoppingDistance) && this.speed > 0) {
             this.brake();
         }
         else {
             this.cruise();
         }
+
         this.move();
     }
 
