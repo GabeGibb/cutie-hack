@@ -15,12 +15,7 @@ body{
     top:0px;
     z-index:100;
 }
-#about{
-    right: 80px;
-    top: 25px;
-    position:absolute;
-    z-index:100;
-}
+
 #headerDiv{
     padding-top:10px;
     /* display:flex; */
