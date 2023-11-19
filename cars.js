@@ -56,7 +56,11 @@ class Vehicle{
             this.accelerate();
         }
         else if(((nextCarX - this.x) < this.stoppingDistance) && this.speed > 0) {
-            this.brake();
+            if ((nextCarX - this.x) < this.width){
+                this.speed = 0;
+            }else{
+                this.brake();
+            }
         }
         else {
             this.cruise();
