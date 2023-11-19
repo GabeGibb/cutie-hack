@@ -8,9 +8,9 @@ class Vehicle{
         this.lane = lane;
         this.lastLane = this.lane;
         
-        this.trueAccel = accel;
+        this.trueAccel = accel + Math.random() * accel / 4;
         this.accel = this.trueAccel;
-        this.maxSpeed = maxSpeed;
+        this.maxSpeed = maxSpeed + Math.random() * maxSpeed / 4;
         this.speed = this.maxSpeed / 10;
         this.x = 0;
 
@@ -43,34 +43,13 @@ class Vehicle{
     // }
 
     tick(nextCar, numLanes){
-        if (this.lastLane != this.lane) {
-            // switch(this.lane) {
-            //     case 0:
-            //         this.maxSpeed *= 1;
-            //         break;
-            //     case 1:
-            //         this.maxSpeed *= 0.9;
-            //         break;
-            //     case 2:
-            //         this.maxSpeed *= 0.8;
-            //         break;
-            //     case 3:
-            //         this.maxSpeed *= 0.7;
-            //         break;
-            // }
-        }
+        
 
         let nextCarX = 2000;
         if (nextCar != undefined){
             nextCarX = nextCar.x;
         }
 
-        // if((nextCarX - this.x) < this.stoppingDistance) {
-        //     this.changeToRed();
-        // }
-        // else { 
-        //     this.changeToWhite();
-        // }
         this.setColor();
         
         if((nextCarX - this.x) > this.stoppingDistance) {
@@ -83,6 +62,7 @@ class Vehicle{
             this.cruise();
         }
 
+        
         // if(numLanes - 1 == this.lane) {
         //     // this.accel = 0.0075;
         //     if (this.x >= 400) {
@@ -128,11 +108,3 @@ class Vehicle{
         }
     }
 }
-
-// class Car extends Vehicle{
-
-// }
-
-// class Truck extends Vehicle{
-
-// }
