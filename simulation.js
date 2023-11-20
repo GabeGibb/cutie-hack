@@ -138,9 +138,9 @@ class Simulation{
                 rectMode(CENTER);
                 fill(cur.color);
                 if (cur.curY != 0){
-                    rect(cur.x * screenWidth / 1000, startY + ((j - cur.yChange) * laneHeight * laneSpacing) + cur.curY, cur.width, laneHeight/4);
+                    rect(cur.x * screenWidth / 1000, startY + ((j - cur.yChange) * laneHeight * laneSpacing) + cur.curY, cur.width * screenWidth / 1000, laneHeight/4);
                 }else{
-                    rect(cur.x * screenWidth / 1000, startY + (j * laneHeight * laneSpacing), cur.width, laneHeight/4);
+                    rect(cur.x * screenWidth / 1000, startY + (j * laneHeight * laneSpacing), cur.width * screenWidth / 1000, laneHeight/4);
                 }
                 
             }
