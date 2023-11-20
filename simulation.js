@@ -1,33 +1,30 @@
 class Simulation{
-    constructor(numLanes, trafficFlow, laneChangeFreq){
-        this.numLanes = numLanes;
-        this.trafficFlow = trafficFlow;
-        this.laneChangeFreq = laneChangeFreq;
+    constructor(){
 
         this.vehicles = [];
-        for(let i = 0; i < this.numLanes; i++){
+        for(let i = 0; i < NUM_LANES; i++){
             this.vehicles.push([]);
         }
 
         this.counter = 0;
-
     }
 
     tick(){
+
         for (let j = 0; j < TICK_RATE; j++){
             this.tickLogic();
         }
     }
 
     changeLaneLogic(){ 
-        if (Math.floor(Math.random() * 100) >= this.laneChangeFreq){
+        if (Math.floor(Math.random() * 100) >= LANE_CHANGE_FREQ){
             return;
         }
         let ticketPenalty = 55;
-        let totalTickets = this.numLanes * 100 - (2 * ticketPenalty);
+        let totalTickets = NUM_LANES * 100 - (2 * ticketPenalty);
         let ticketArr = [];
-        for(let i = 0; i < this.numLanes; i++) {
-            if(i == 0 || i == this.numLanes - 1) {
+        for(let i = 0; i < NUM_LANES; i++) {
+            if(i == 0 || i == NUM_LANES - 1) {
                 ticketArr[i] = 100 - ticketPenalty;
             }
             else {
@@ -57,7 +54,7 @@ class Simulation{
         if (laneToChange == 0){
             dir = 1;
         }
-        else if (laneToChange >= this.numLanes - 1){
+        else if (laneToChange >= NUM_LANES - 1){
             dir = -1;
         }
         else{
@@ -73,7 +70,7 @@ class Simulation{
         let carInFront = false;
         for(let i = 0; i < this.vehicles[newLane].length; i++){
             if (this.vehicles[newLane][i].x > cur.x){ //once you find car in front of current car in another lane swap current car to behind other car in other lane
-                if (this.vehicles[newLane][i] < cur.x + cur.width * STOPPING_DISTANCE){
+                if (this.vehicles[newLane][i].x < cur.x + cur.width){
                     return;
                 }
                 this.vehicles[newLane].splice(i, 0, cur); //lane change
@@ -89,16 +86,16 @@ class Simulation{
     }
 
     spawnCars(){
-        if (Math.floor(Math.random() * 60) < this.trafficFlow){ //spawn cars
+        if (Math.floor(Math.random() * 60) < TRAFFIC_FLOW){ //spawn cars
             let randLanes = []; //array of lanes that will have new cars
-            for(let i = 0; i < this.numLanes; i++){
-                if (Math.floor(Math.random() * this.numLanes * this.numLanes) == 0){
+            for(let i = 0; i < NUM_LANES; i++){
+                if (Math.floor(Math.random() * NUM_LANES * NUM_LANES) == 0){
                     randLanes.push(i); //randomly choose which lanes will have cars
                 }
             }
             
             for(let i = 0; i < randLanes.length; i++){
-                this.vehicles[randLanes[i]].unshift(new Vehicle(AVERAGE_ACCELERATION, MAX_SPEED, randLanes[i]));
+                this.vehicles[randLanes[i]].unshift(new Vehicle(randLanes[i]));
             
             }
         }
@@ -109,12 +106,13 @@ class Simulation{
     tickLogic(){
         this.spawnCars();
         this.changeLaneLogic();
-        
-        // let randLane = Math.floor(Math.random() * this.numLanes);
-        for(let j = 0 ; j < this.numLanes; j++){
+        // console.log(this.vehicles)
+        // console.log(NUM_LANES)
+        for(let j = 0 ; j < this.vehicles.length; j++){
+
             for(let i = 0; i < this.vehicles[j].length; i++){
                 let cur = this.vehicles[j][i];
-                cur.tick(this.vehicles[j][i+1], this.numLanes);
+                cur.tick(this.vehicles[j][i+1], NUM_LANES);
                 if (cur.x > 1000){
                     this.vehicles[j].splice(i,1);
                 }
@@ -131,7 +129,7 @@ class Simulation{
 
     draw(laneHeight, laneSpacing, start, screenWidth){
         let startY = laneSpacing * laneHeight / 2 + start;
-        for(let j = 0 ; j < this.numLanes; j++){
+        for(let j = 0 ; j < this.vehicles.length; j++){
             for(let i = 0; i < this.vehicles[j].length; i++){
                 let cur = this.vehicles[j][i];
                 // color(255, 0, 0);
@@ -146,4 +144,17 @@ class Simulation{
             }
         }
     }
+
+
+    update(){
+        let newVehicles = [];
+        for(let i = 0; i < NUM_LANES; i++){
+            if (i < this.vehicles.length){
+                newVehicles.push(this.vehicles[i])
+            }else{
+                newVehicles.push([])
+            }
+        }
+        this.vehicles = newVehicles;
+    }   
 }

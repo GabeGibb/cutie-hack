@@ -4,7 +4,7 @@
 // let tickRate = 1;
 // let percentTrucks = 0;
 // let laneChangeFreq = 2;
-var sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, LANE_CHANGE_FREQ);
+var sim = new Simulation();
 
 
 
@@ -43,12 +43,14 @@ function draw() {
     sim.draw(laneHeight, laneSpacing, laneStartSpace, width);
 }
 
-function restartSim(){
-
+function updateSim(){
+    noLoop();
     updateConstants();
     resizeCanvas(windowWidth * 7/8, (laneHeight * NUM_LANES * laneSpacing) + laneStartSpace);
-    sim = new Simulation(NUM_LANES, TRAFFIC_FLOW, LANE_CHANGE_FREQ);
-    console.log(LANE_CHANGE_FREQ)
+    sim.update();
+    
+    loop();
+    
 }
 
 
@@ -56,6 +58,6 @@ var sliders = document.querySelectorAll("input").length;
 
 for (var i = 0; i < sliders ; i++) {
     document.querySelectorAll("input")[i].addEventListener("change", function() {
-        restartSim();
+        updateSim();
     });
 }
